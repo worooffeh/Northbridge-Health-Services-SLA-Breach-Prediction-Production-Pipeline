@@ -12,7 +12,7 @@ The project goes beyond a simple “train a classifier” workflow. It treats SL
 
 <!-- Replace the path below with the final project theme/banner image -->
 <p align="center">
-  <img src="assets/project_theme_placeholder.svg" alt="Northbridge SLA Breach Prediction project theme" width="100%">
+  <img src="assets/project_theme_placeholder.png" alt="Northbridge SLA Breach Prediction project theme" width="100%">
 </p>
 
 > **Theme image placeholder:** `assets/project_theme_placeholder.svg`
