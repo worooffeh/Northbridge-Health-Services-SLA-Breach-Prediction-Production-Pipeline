@@ -1,0 +1,28 @@
+# Raw / sensitive operational data
+/data/raw/*.csv
+/data/raw/*.parquet
+!/data/raw/README.md
+
+# Generated data and artifacts
+/data/processed/*
+!/data/processed/.gitkeep
+/mlruns/
+/models/champion/*.joblib
+/models/champion/*.pkl
+/models/champion/*.bin
+/reports/**/*.html
+/reports/**/*.csv
+/reports/**/*.json
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Env / OS
+.env
+.DS_Store

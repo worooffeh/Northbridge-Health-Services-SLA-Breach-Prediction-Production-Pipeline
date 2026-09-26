@@ -1,0 +1,26 @@
+{
+  "model_version": "20260926T000007Z",
+  "experiment": "E1_baseline",
+  "model_name": "Logistic Regression",
+  "threshold": 0.5,
+  "validation_metrics": {
+    "roc_auc": 0.5596030785195434,
+    "pr_auc": 0.2550692479218115,
+    "lift_at_10pct": 1.2382075471698113,
+    "brier": 0.2470702050121487
+  },
+  "test_metrics": {
+    "roc_auc": 0.5079762899311772,
+    "pr_auc": 0.26019004370185506,
+    "precision_050": 0.23371647509578544,
+    "recall_050": 0.48412698412698413,
+    "f1_050": 0.3152454780361757,
+    "brier": 0.25238130551370974,
+    "lift_at_10pct": 1.179245283018868
+  },
+  "trained_through": "2024-11-29 01:25:00",
+  "test_period_start": "2024-11-30 04:18:00",
+  "test_period_end": "2025-03-31 07:56:00",
+  "prediction_point": "T1_after_assignment",
+  "artifact_sha256": "6fd939e44cd2c3e207628178744ef181e8fb75f2ebdf95f55fadab4150a2c8cf"
+}

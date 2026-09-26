@@ -1,0 +1,73 @@
+services:
+  api:
+    build: .
+    command: uvicorn services.api.main:app --host 0.0.0.0 --port 8000
+    environment:
+      MODEL_DIR: /app/models/champion
+      API_ROOT_PATH: /api
+    volumes:
+      - ./models:/app/models:ro
+    expose:
+      - "8000"
+
+  dashboard:
+    build: .
+    command: python services/dashboard/app.py
+    environment:
+      DASH_REQUESTS_PATHNAME_PREFIX: /dashboard/
+    volumes:
+      - ./models:/app/models:ro
+      - ./reports:/app/reports:ro
+    expose:
+      - "8050"
+
+  mlflow:
+    build: .
+    command: >
+      mlflow server
+      --host 0.0.0.0
+      --port 5000
+      --backend-store-uri sqlite:////mlflow/mlflow.db
+      --default-artifact-root /mlflow/artifacts
+    volumes:
+      - mlflow_data:/mlflow
+    ports:
+      - "5000:5000"
+
+  trainer:
+    build: .
+    profiles: ["training"]
+    command: python scripts/train_champion.py
+    depends_on: [mlflow]
+    environment:
+      NORTHBRIDGE_DATA_DIR: /app/data/raw
+      MLFLOW_TRACKING_URI: http://mlflow:5000
+    volumes:
+      - ./data/raw:/app/data/raw:ro
+      - ./models:/app/models
+      - ./reports:/app/reports
+
+  monitor:
+    build: .
+    profiles: ["monitoring"]
+    command: python scripts/run_monitoring.py
+    environment:
+      NORTHBRIDGE_DATA_DIR: /app/data/raw
+    volumes:
+      - ./data/raw:/app/data/raw:ro
+      - ./models:/app/models:ro
+      - ./reports:/app/reports
+
+  nginx:
+    image: nginx:1.27-alpine
+    depends_on:
+      - api
+      - dashboard
+      - mlflow
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+
+volumes:
+  mlflow_data:

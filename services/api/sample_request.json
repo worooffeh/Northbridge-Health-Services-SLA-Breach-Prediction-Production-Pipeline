@@ -1,0 +1,20 @@
+{
+  "PriorityID": 1,
+  "CategoryID": 2,
+  "Channel": "Portal",
+  "ContractTier": "Enterprise",
+  "TeamID": 6,
+  "AssignedAgentID": 32,
+  "SLACreditClause": 1,
+  "DailyCapacity": 20,
+  "TeamDailyCapacity": 200,
+  "CreatedAt": "2025-04-01T10:00:00",
+  "SLADueAt": "2025-04-01T18:00:00",
+  "Description": "Disputed invoice charge requiring review",
+  "agent_open_backlog": 3,
+  "team_open_backlog": 20,
+  "agent_arrivals_1h": 1,
+  "agent_arrivals_4h": 4,
+  "team_arrivals_1h": 5,
+  "team_arrivals_4h": 15
+}

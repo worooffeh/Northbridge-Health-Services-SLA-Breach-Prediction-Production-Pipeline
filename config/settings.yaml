@@ -1,0 +1,32 @@
+project:
+  name: northbridge-sla-breach
+  random_state: 42
+  target: SLABreached
+
+prediction:
+  point: T1_after_assignment
+  agent_known: true
+  sla_due_known: true
+
+split:
+  train_fraction: 0.70
+  validation_fraction: 0.15
+  test_fraction: 0.15
+
+success_metrics:
+  primary: roc_auc
+  secondary: pr_auc
+  minimum_lift_at_10pct: 1.20
+  require_test_auc_above_random: true
+
+monitoring:
+  numeric_psi_warning: 0.10
+  numeric_psi_critical: 0.25
+  categorical_psi_warning: 0.10
+  performance_auc_drop_warning: 0.05
+  performance_pr_drop_warning: 0.05
+  minimum_labeled_batch: 100
+
+mlflow:
+  experiment_name: northbridge-sla-breach
+  tracking_uri: ${MLFLOW_TRACKING_URI:-file:./mlruns}
