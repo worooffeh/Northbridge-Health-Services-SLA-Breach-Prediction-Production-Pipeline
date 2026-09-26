@@ -798,7 +798,7 @@ Within each fold, the following must be learned only from training history:
 
 ---
 
-# 24. Suggested repository structure
+# 24. Repository structure
 
 ```text
 northbridge-sla-breach/
