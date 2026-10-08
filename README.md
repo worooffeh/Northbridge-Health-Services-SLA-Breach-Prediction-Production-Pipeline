@@ -25,9 +25,7 @@ The project goes beyond a simple “train a classifier” workflow. It treats SL
   <img src="assets/classifiers_get_tired_signal_engineering.gif" alt="When classifiers get tired - signal engineering animation" width="100%">
 </p>
 
-> **Animation placeholder:** `assets/classifiers_get_tired_signal_engineering.gif`
 
-Suggested caption:
 
 > **Weak model — or signal-starved model?**  
 > The project investigates the point where additional classifier tuning stops producing meaningful gains and feature-signal engineering becomes the real modelling problem.
