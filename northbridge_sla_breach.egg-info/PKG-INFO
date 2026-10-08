@@ -1,0 +1,5 @@
+Metadata-Version: 2.4
+Name: northbridge-sla-breach
+Version: 0.1.0
+Summary: Leakage-aware SLA breach prediction and predictive process monitoring
+Requires-Python: >=3.11
